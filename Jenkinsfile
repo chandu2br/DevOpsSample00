@@ -18,6 +18,7 @@ node('master')
 	}
 	stage('Continuous Delivery') 
 	{
-    	sh 'scp  /root/.jenkins/workspace/MultiBranchPipeline_master@2/webapp/target/webapp.war   ubuntu@172.31.22.52:/var/lib/tomcat8/webapps/prodenv.war'
+    	input 'Waiting for Approval'
+	sh 'scp  /root/.jenkins/workspace/MultiBranchPipeline_master@2/webapp/target/webapp.war   ubuntu@172.31.22.52:/var/lib/tomcat8/webapps/prodenv.war'
 	}
 }
